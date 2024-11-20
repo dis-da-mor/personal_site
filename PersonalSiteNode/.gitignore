@@ -1,7 +1,0 @@
-/node_modules/
-/public/assets/bert_base_uncased.onnx
-/public/assets/bert_base_standard.onnx
-/public/assets/Convert/
-/public/assets/Converted/
-/public/assets/ConvertedMobile/
-/.idea

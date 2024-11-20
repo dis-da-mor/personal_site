@@ -1,3 +1,3 @@
 # personal_site_old
 
-previous attempts at making a personal site. Latest one is `personal_site`
+an attempt to make the site in asp.net. this code is old and horrible, please do not look at it :)
