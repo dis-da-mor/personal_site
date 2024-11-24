@@ -1,17 +1,13 @@
-use rocket::fs::FileServer;
-use rocket::Request;
-
+use rocket::{
+    fs::FileServer,
+    http::Status,
+    request::{FromRequest, Outcome},
+    response::content::RawHtml,
+    Request,
+};
 #[macro_use]
 extern crate rocket;
-use rocket::http::Status;
-
-use rocket::request::FromRequest;
-use rocket::request::Outcome;
-use rocket::response::content::RawHtml;
-use user_agent_parser::Device;
-
-use user_agent_parser::UserAgentParser;
-
+use user_agent_parser::{Device, UserAgentParser};
 mod encode;
 
 struct Stat(String);
@@ -92,11 +88,10 @@ fn stats(
         );
     RawHtml(stats_file)
 }
-
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
-        .mount("/", FileServer::from("./public"))
+        .mount("/", FileServer::from("./astro/dist"))
         .mount("/", routes![stats])
 }

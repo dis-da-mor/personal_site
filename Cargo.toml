@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 rocket = "0.5.1"
 user-agent-parser = {version = "0.3.4", features = ["rocket"]}
+rust-bert = {git = "https://github.com/guillaume-be/rust-bert.git", features = ["download-libtorch"]}
