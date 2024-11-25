@@ -1,3 +1,10 @@
+use std::{
+    env,
+    process::{Command, Stdio},
+    sync::Arc,
+};
+
+use pyo3::{ffi::c_str, types::PyModule};
 use rocket::{
     fs::FileServer,
     http::Status,
@@ -88,8 +95,18 @@ fn stats(
         );
     RawHtml(stats_file)
 }
+use pyo3::prelude::*;
 #[launch]
 fn rocket() -> _ {
+    Python::with_gil(|py| {
+        let trial = PyModule::from_code(
+            py,
+            c_str!(include_str!("../model/main.py")),
+            c_str!("main.py"),
+            c_str!("main"),
+        )
+        .unwrap();
+    });
     rocket::build()
         .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
         .mount("/", FileServer::from("./astro/dist"))
