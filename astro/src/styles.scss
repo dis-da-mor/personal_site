@@ -1,0 +1,16 @@
+:root{
+    color-scheme: dark;
+}
+$primary: #2e3440;
+@import "./bootstrap_scss/bootstrap.scss";
+.head-border{
+    border-bottom: 2px solid rgba($color: #ffffff, $alpha: 0.5);
+    margin-right: ($spacer * .5);
+    margin-left: ($spacer * .5);
+    padding-bottom: ($spacer * .25);
+    padding-top: ($spacer * .25);
+}
+.name-anchor{
+    border-bottom: 1px dotted #ffffff;
+    text-decoration: none;
+}

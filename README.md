@@ -4,5 +4,5 @@ my site
 
 ## Running
 
-- install rust and npm
-- run `nu rust.nu` and `nu astro.nu`
+- install nushell, rust, npm, and python
+- run what you'd like from `commands_specific/`
