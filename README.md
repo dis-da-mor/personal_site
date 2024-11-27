@@ -10,6 +10,5 @@ my site
 ## TODO
 
 - [nord](https://www.nordtheme.com/docs/colors-and-palettes)
-- finish interests and social on index
 - make interests pages
 - make stats page

@@ -8,36 +8,30 @@ import Social from '../components/social.astro';
 <Layout>
 	<main>
 		<p class="display-3 text-white text-center head-border">dis_da_mør</p>
-		<p class="text-white text-center fs-3">
-			Hi I'm <span class="name-anchor" data-bs-toggle="tooltip" data-bs-title="arabic: مُر, romanized: mor" data-bs-placement="bottom">
+		<p class="text-sub">
+			Hi I'm <span class="name-anchor" data-bs-toggle="tooltip" data-bs-title="arabic: مُر, romanized: mor" data-bs-placement="top">
 				mør
 			</span>, I have an interest in:
 		</p>
-		<div class="container px-4 text-center">
-			<div class="row-cols-3 gx-5">
-				<Interest name="code" description="programming computers">
-					<Icon name="mdi:code"/>
-				</Interest>
-				<Interest name="music" description="producing music and playing the electric guitar">
-					<Icon name="mdi:music"/>
-				</Interest>
-				<Interest name="art" description="drawing, digital or in-person">
-					<Icon name="mdi:brush"/>
-				</Interest>
-			</div>
+		<div class="row mx-2 d-flex justify-content-center gap-3">
+				<Interest name="code" description="programming computers" icon_name="code"/>
+				<Interest name="music" description="electric guitar and electronic music" icon_name="music"/>
+				<Interest name="art" description="drawing, digital or physical" icon_name="brush"/>
 		  </div>
-		<p class="text-white">
-			You can find me at:
+		<p class="text-sub">
+			You can find me on:
 		</p>
-		<Social link="https://open.spotify.com/artist/3vsDqpqBxndJ1rePyWFApF?si=hYFWlf2fRFisHaA6XJh-ww" icon_name="spotify"/>
-		<Social link="https://disdamor.bandcamp.com/" icon_name="bandcamp"/>
-		<Social link="https://github.com/dis-da-mor" icon_name="github"/>
-		<Social link="https://youtube.com/@dis_da_mor?si=Vhm04cnZ3-GxoNkq" icon_name="youtube"/>
-		<Social link="https://mastodon.social/@dis_da_mor" icon_name="mastodon"/>
-		<Social link="https://bsky.app/profile/dis-da-mor.bsky.social" icon_name="bluesky"/>
-		<Social link="https://discordapp.com/users/368673056899596290" icon_name="discord"/>
-		<Social link="https://x.com/dis_da_mor" icon_name="twitter"/>
-		<Social link="https://www.instagram.com/dis_da_mor/" icon_name="instagram"/>
+		<div class="row d-flex justify-content-center">
+		<Social link="https://open.spotify.com/artist/3vsDqpqBxndJ1rePyWFApF?si=hYFWlf2fRFisHaA6XJh-ww" icon_name="mdi:spotify"/>
+		<Social link="https://disdamor.bandcamp.com/" icon_name="brandico:bandcamp"/>
+		<Social link="https://github.com/dis-da-mor" icon_name="mdi:github"/>
+		<Social link="https://youtube.com/@dis_da_mor?si=Vhm04cnZ3-GxoNkq" icon_name="mdi:youtube"/>
+		<Social link="https://mastodon.social/@dis_da_mor" icon_name="mdi:mastodon"/>
+		<Social link="https://bsky.app/profile/dis-da-mor.bsky.social" icon_name="ri:bluesky-line"/>
+		<Social link="https://discordapp.com/users/368673056899596290" icon_name="simple-icons:discord"/>
+		<Social link="https://x.com/dis_da_mor" icon_name="mdi:twitter"/>
+		<Social link="https://www.instagram.com/dis_da_mor/" icon_name="mdi:instagram"/>
+		</div>
 </main>
 </Layout>
 

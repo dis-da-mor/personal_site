@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
 	link: string;
 	icon_name: string;	
@@ -6,6 +8,8 @@ interface Props {
 
 const {link, icon_name} = Astro.props;
 ---
-<a href={link}>
-	<img src={`./icons/${icon_name}`} alt={`${icon_name} icon`}/>
-</a>
+<div class="col-auto">
+	<a href={link} class="social-button">
+		<Icon name={icon_name}/>
+	</a>
+</div>

@@ -14,3 +14,31 @@ $primary: #2e3440;
     border-bottom: 1px dotted #ffffff;
     text-decoration: none;
 }
+
+.interest-icon{
+    @extend .text-white;
+    font-size: 30px;
+}
+.interest-container{
+    border-radius: 0px;
+    max-width: 260px;
+}
+.interest-container:hover{
+    outline: 1px inset white;
+    transition: .1s ease-in-out;
+}
+body{
+    overflow-x: hidden;
+}
+.text-sub{
+   @extend  .text-white;
+   @extend .text-center;
+   @extend .fs-3;
+}
+.social-button{
+    @extend .btn; 
+    @extend .rounded-circle;
+    border-color: rgba($color: #ffffff, $alpha: 0.5);
+    @extend .text-white;    
+    font-size: 30px;
+}

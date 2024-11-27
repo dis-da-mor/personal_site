@@ -1,15 +1,28 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props{
     name: string;
     description: string;
+    icon_name: string
 }
-const {name, description} = Astro.props;
+const {name, description, icon_name} = Astro.props;
 ---
-<div class="col">
-    <div class="p-3">
-        <h2 class="text-white">{name}</h2>
-        <p class="text-white">{description}</p>
-        <slot/>
+<div class="col-sm-4 d-flex justify-content-center interest-container position-relative px-0">
+   <a href={`./${name}`} class="stretched-link"></a> 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-white float-start">{name}</h2>
+            </div>
+            <div class="col">
+                <Icon class="interest-icon" name={`mdi:${icon_name}`}/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="text-white text-start">{description}</p>
+            </div>
+        </div>
     </div>
 </div>
-
