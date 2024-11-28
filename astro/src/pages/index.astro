@@ -1,36 +1,35 @@
 --- 
-import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import Interest from '../components/interest.astro';
 import Social from '../components/social.astro';
+import socials_json from "../data/socials.json";
+import { Icon } from 'astro-icon/components';
+import InfoPopup from '../components/info_popup.astro';
+const socials = socials_json.socials.filter((social) => social[3] !== "private");
 ---
 
 <Layout>
 	<main>
-		<p class="display-3 text-white text-center head-border">dis_da_mør</p>
+		<p class="head">dis_da_mør</p>
 		<p class="text-sub">
-			Hi I'm <span class="name-anchor" data-bs-toggle="tooltip" data-bs-title="arabic: مُر, romanized: mor" data-bs-placement="top">
-				mør
-			</span>, I have an interest in:
+			Hi I'm mør
+			<InfoPopup text="arabic: مُر, romanized: mor"/>
+			, I have an interest in:
 		</p>
-		<div class="row mx-2 d-flex justify-content-center gap-3">
+		<div class="row mx-2 d-flex justify-content-center gap-3 mt-2">
 				<Interest name="code" description="programming computers" icon_name="code"/>
 				<Interest name="music" description="electric guitar and electronic music" icon_name="music"/>
 				<Interest name="art" description="drawing, digital or physical" icon_name="brush"/>
 		  </div>
-		<p class="text-sub">
+		<p class="text-sub mt-2">
 			You can find me on:
 		</p>
 		<div class="row d-flex justify-content-center">
-		<Social link="https://open.spotify.com/artist/3vsDqpqBxndJ1rePyWFApF?si=hYFWlf2fRFisHaA6XJh-ww" icon_name="mdi:spotify"/>
-		<Social link="https://disdamor.bandcamp.com/" icon_name="brandico:bandcamp"/>
-		<Social link="https://github.com/dis-da-mor" icon_name="mdi:github"/>
-		<Social link="https://youtube.com/@dis_da_mor?si=Vhm04cnZ3-GxoNkq" icon_name="mdi:youtube"/>
-		<Social link="https://mastodon.social/@dis_da_mor" icon_name="mdi:mastodon"/>
-		<Social link="https://bsky.app/profile/dis-da-mor.bsky.social" icon_name="ri:bluesky-line"/>
-		<Social link="https://discordapp.com/users/368673056899596290" icon_name="simple-icons:discord"/>
-		<Social link="https://x.com/dis_da_mor" icon_name="mdi:twitter"/>
-		<Social link="https://www.instagram.com/dis_da_mor/" icon_name="mdi:instagram"/>
+			{
+				socials.map((social) => {
+					return (<Social link={social[0]} icon_name={social[1]} name={social[2]}/>);
+				})
+			}
 		</div>
 </main>
 </Layout>

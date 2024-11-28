@@ -1,0 +1,19 @@
+---
+interface Props{
+    text?: string;
+}
+const {text: text_given} = Astro.props;
+let text = "view";
+if (typeof text_given !== "undefined"){
+    text = text_given;
+}
+---
+
+<div class="dropdown">
+    <button class="btn dropdown-toggle btn-outline text-white" data-bs-toggle="dropdown">
+        {text}
+        </button>
+        <ul class="dropdown-menu language-menu">
+            <slot/>
+        </ul>
+</div>

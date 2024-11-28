@@ -12,8 +12,16 @@ import "../styles.scss";
 	<body class="bg-primary">
 		<script>
 			import * as bootstrap from "bootstrap";
-			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-			const _tooltips = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))	
+			const tooltips = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]')).map((element) => {
+				return new bootstrap.Tooltip(element, {
+					trigger: "click hover focus"
+				});
+			});
+			document.addEventListener("pointerup", (event) => {
+				tooltips.forEach((tooltip) => {
+					tooltip.hide();
+				});
+			});
 		</script>
 		<slot/>
 	</body>

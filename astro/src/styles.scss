@@ -10,7 +10,7 @@ $primary: #2e3440;
     padding-bottom: ($spacer * .25);
     padding-top: ($spacer * .25);
 }
-.name-anchor{
+.tooltip-text{
     border-bottom: 1px dotted #ffffff;
     text-decoration: none;
 }
@@ -41,4 +41,14 @@ body{
     border-color: rgba($color: #ffffff, $alpha: 0.5);
     @extend .text-white;    
     font-size: 30px;
+}
+.head {
+    @extend .display-3;
+    @extend .text-white; 
+    @extend .text-center;
+    @extend .head-border;
+}
+.language-menu{
+    background-color: black !important;
+    min-width: 0px!important;
 }

@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props{
+    name: string;
+    icon_name: string;
+    level: string;
+}
+const {name, icon_name, level} = Astro.props;
+---
+
+<tr>
+    <th scope="col">{name} <Icon name={icon_name}/> </th>
+    <td>{level}</td>
+    <td><a href="./code?projects='language:name'"></a></td>
+</tr>

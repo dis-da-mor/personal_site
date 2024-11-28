@@ -1,0 +1,39 @@
+---
+import LanguageRow from "../components/language_row.astro";
+import Layout from "../layouts/Layout.astro";
+import languages_json from "../data/languages.json";
+const languages = languages_json.languages;
+import {code_params_get}from "../scripts/params";
+const params = code_params_get(Astro.url.searchParams);
+---
+<Layout>
+    {params.project_by_language}
+    <main>
+        <p class="head">code</p>
+        <p class="text-sub">languages:</p>
+        <div class="container flex-d justify-content-center mx-2">
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">level</th>
+                        <th scope="col">projects</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        languages.map(({name, icon_name, level}) => {
+                            return (
+                                <LanguageRow 
+                                    name={name} 
+                                    icon_name={icon_name} 
+                                    level={level} 
+                                }/>
+                            );
+                        })
+                    }
+                </tbody>
+            </table>
+        </div>
+    </main>
+</Layout>

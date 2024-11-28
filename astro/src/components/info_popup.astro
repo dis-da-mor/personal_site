@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props{
+    text: string;
+}
+const {text} = Astro.props;
+---
+<span data-bs-toggle="tooltip" data-bs-title={text} data-bs-placement="top">
+    <sup style="font-size: small;">
+    <!-- 
+    <Icon name="mdi:information-outline" size="15px"/>
+-->
+    &#9432;
+    </sup>
+</span>

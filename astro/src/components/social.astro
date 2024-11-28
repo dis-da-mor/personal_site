@@ -4,11 +4,12 @@ import { Icon } from 'astro-icon/components';
 interface Props {
 	link: string;
 	icon_name: string;	
+	name: string;
 }
 
-const {link, icon_name} = Astro.props;
+const {link, icon_name, name} = Astro.props;
 ---
-<div class="col-auto">
+<div class="col-auto" data-bs-toggle="tooltip" data-bs-title={name}>
 	<a href={link} class="social-button">
 		<Icon name={icon_name}/>
 	</a>
