@@ -9,6 +9,9 @@ my site
 
 ## TODO
 
+- [astrodb](https://docs.astro.build/en/guides/astro-db/)
+- admin to edit db
 - [nord](https://www.nordtheme.com/docs/colors-and-palettes)
-- make interests pages
+- make art page
 - make stats page
+- make code page
