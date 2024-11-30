@@ -6,8 +6,10 @@ use rocket::{
     Request, State,
 };
 use std::{
+    env,
     io::{Read, Write},
     os::unix::net::UnixStream,
+    path::Path,
     process::{Command, Stdio},
     sync::Mutex,
     thread,
@@ -111,13 +113,23 @@ pub(crate) fn stat_generate(
 }
 
 pub(crate) fn stat_state() -> Mutex<UnixStream> {
+    let original_dir = env::current_dir().unwrap();
+    let target_path = Path::new("./model_python")
+        .canonicalize()
+        .expect("no 'model_python' directory");
+    env::set_current_dir(target_path).unwrap();
+
+    //Command::new("ls").spawn().unwrap();
+    //thread::sleep(Duration::from_secs(100));
+
     thread::spawn(|| {
-        Command::new("./model.bin")
+        Command::new("./main.bin")
             .stderr(Stdio::inherit())
             .output()
             .unwrap();
     });
     thread::sleep(Duration::from_secs(3));
     let stream = UnixStream::connect("/tmp/sock").unwrap();
+    env::set_current_dir(original_dir).unwrap();
     Mutex::new(stream)
 }

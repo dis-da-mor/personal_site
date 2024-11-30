@@ -3,9 +3,10 @@ name = "personal_site"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 anyhow = "1.0.93"
-rocket = "0.5.1"
+dotenv = "0.15.0"
+rocket = {version = "0.5.1", features = ["secrets", "tls"]}
+rocket-governor = "0.2.0-rc.3"
 user-agent-parser = {version = "0.3.4", features = ["rocket"]}
+
