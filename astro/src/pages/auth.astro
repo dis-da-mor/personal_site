@@ -1,29 +1,19 @@
 ---
 ---
-<form action="admin_submit" method="post">
+<form action="auth_submit" method="post">
     <input type="password" placeholder="password" name="password" required>
-    <button type="submit">Login</button>
+    <button type="submit">login</button>
 </form>
 <p id="message"></p>
 <script>
-    const ok = "ok";
     const err = "err";
-    let already = "already";
     let message: string = "";
     let color: string = "inherit";
  
     const urlParams = new URLSearchParams(window.location.search);
     const status = urlParams.get("status");
    if (status !== null){
-        if (status === ok){
-            color = "green";
-            message = "logged in :)"
-        }
-        else if (status === already){
-            color = "yellow";
-            message = "already logged in...";
-        }
-        else if (status == err){
+        if (status == err){
             color = "red";
             message = "invalid";
         }

@@ -1,17 +1,54 @@
 ---
+import { getCollection } from "astro:content";
 import LanguageRow from "../components/language_row.astro";
 import Layout from "../layouts/Layout.astro";
-import languages_json from "../data/languages.json";
-const languages = languages_json.languages;
-import {code_params_get}from "../scripts/params";
-const params = code_params_get(Astro.url.searchParams);
+import ProjectRow from "../components/project_row.astro";
+const projects_collection = await getCollection("projects");
+const projects = projects_collection.map((project) => project.data).sort((a, b) => a.rank - b.rank);
+const language_collection = await getCollection("languages");
+const languages = language_collection.map((language) => language.data).map((data) => {
+    return {...data, 
+        projects: projects
+        .filter((project) => project.languages.includes(data.name))
+        .map((project) => ({name: project.name, repo: project.repo}))
+    };
+}).sort((a, b) => a.rank - b.rank);
 ---
 <Layout>
-    {params.project_by_language}
     <main>
         <p class="head">code</p>
-        <p class="text-sub">languages:</p>
+        <p class="text-sub">projects:</p>
         <div class="container flex-d justify-content-center mx-2">
+            <div class="table-responsive">
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">repo</th>
+                        <th scope="col">about</th>
+                        <th scope="col">languages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {
+                        projects.map(({name, description, repo, languages}) => {
+                            return (
+                                <ProjectRow 
+                                    name={name} 
+                                    link={repo}
+                                    description={description}
+                                    languages={languages}
+                                }/>
+                            );
+                        })
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
+         <p class="text-sub">languages:</p>
+        <div class="container flex-d justify-content-center mx-2">
+            <div class="table-responsive">
             <table class="table text-white">
                 <thead>
                     <tr>
@@ -22,18 +59,20 @@ const params = code_params_get(Astro.url.searchParams);
                 </thead>
                 <tbody>
                     {
-                        languages.map(({name, icon_name, level}) => {
+                        languages.map(({name, icon_name, verbosity, projects}) => {
                             return (
                                 <LanguageRow 
                                     name={name} 
                                     icon_name={icon_name} 
-                                    level={level} 
+                                    verbosity={verbosity} 
+                                    projects={projects}
                                 }/>
                             );
                         })
                     }
                 </tbody>
             </table>
+            </div>
         </div>
-    </main>
+   </main>
 </Layout>

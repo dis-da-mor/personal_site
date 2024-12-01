@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Interest from '../components/interest.astro';
 import Social from '../components/social.astro';
-import socials_json from "../data/socials.json";
-import { Icon } from 'astro-icon/components';
 import InfoPopup from '../components/info_popup.astro';
-const socials = socials_json.socials.filter((social) => social[3] !== "private");
+import { getCollection, getEntry } from 'astro:content';
+const socials_collection = await getCollection("socials");
+const socials = socials_collection.map((social) => social.data);
 ---
 
 <Layout>
@@ -27,7 +27,7 @@ const socials = socials_json.socials.filter((social) => social[3] !== "private")
 		<div class="row d-flex justify-content-center">
 			{
 				socials.map((social) => {
-					return (<Social link={social[0]} icon_name={social[1]} name={social[2]}/>);
+					return (<Social link={social.link} icon_name={social.icon_name} name={social.name}/>);
 				})
 			}
 		</div>

@@ -1,22 +1,45 @@
-use auth::{admin_submit, auth_state, Auth};
-use rocket::{catchers, fs::FileServer, launch, routes};
+use auth::{admin_submit_in, auth_remove, auth_state, auth_submit, Auth};
+use private::files;
+use rocket::{
+    catchers,
+    figment::{Figment, Profile},
+    fs::FileServer,
+    launch, routes,
+};
 use rocket_governor::rocket_governor_catcher;
 use stat::{stat_generate, stat_state, stats};
+use std::{fs, path::Path};
 use user_agent_parser::UserAgentParser;
 mod auth;
+mod private;
 mod stat;
 
 #[launch]
 fn rocket() -> _ {
     let stat_state = stat_state();
     let auth_state = auth_state();
-    rocket::build()
+    rocket::custom(figment_gen())
         .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
-        .mount("/", FileServer::from("./astro/dist"))
+        //        .mount("/", FileServer::from("./astro/dist").rank(10))
+        .mount("/", routes![files])
         .mount("/", routes![stats, stat_generate])
         .attach(Auth)
-        .mount("/", routes![admin_submit])
+        .mount("/", routes![auth_submit, admin_submit_in, auth_remove])
         .manage(stat_state)
         .manage(auth_state)
         .register("/", catchers![rocket_governor_catcher])
+}
+
+fn figment_gen() -> Figment {
+    let key_path = Path::new(".key");
+    let mut key = [0u8; 64];
+    if !key_path.exists() {
+        getrandom::getrandom(&mut key).unwrap();
+        fs::write(key_path, key).unwrap();
+    } else {
+        key = fs::read(key_path).unwrap().try_into().unwrap();
+    }
+    Figment::from(rocket::Config::default())
+        .merge(("secret_key", key.to_vec()))
+        .select(Profile::from_env_or("APP_PROFILE", "default"))
 }

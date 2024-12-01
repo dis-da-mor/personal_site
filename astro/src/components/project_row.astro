@@ -1,0 +1,16 @@
+---
+interface Props{
+    name: string;
+    link: string;
+    description: string;
+    languages: string[];
+}
+const {name, description,  languages, link} = Astro.props;
+---
+
+<tr>
+    <th scope="col">{name}</th>
+    <td><a href={link} class="text-white">link</a></td>
+    <td>{description}</td>
+    <td>{languages.join(", ")}</td>
+</tr>

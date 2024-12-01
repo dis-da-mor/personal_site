@@ -4,13 +4,29 @@ import { Icon } from 'astro-icon/components';
 interface Props{
     name: string;
     icon_name: string;
-    level: string;
+    verbosity: number;
+    projects: {name: string, repo: string}[];
 }
-const {name, icon_name, level} = Astro.props;
+const {name, icon_name, verbosity: verbosity_number, projects} = Astro.props;
+let verbosity = "";
+if (verbosity_number < 1){
+    verbosity = "learning"
+}
+else if (verbosity_number < 2){
+    verbosity = "beginner"
+}
+else if (verbosity_number < 3){
+    verbosity = "intermediate"
+}
+else if (verbosity_number < 4){
+    verbosity = "advanced"
+}
 ---
 
 <tr>
     <th scope="col">{name} <Icon name={icon_name}/> </th>
-    <td>{level}</td>
-    <td><a href="./code?projects='language:name'"></a></td>
+    <td>{verbosity}</td>
+    <td>{
+    projects.map((project) => (<a class="text-white" href={project.repo}>{project.name}</a>))
+    }</td>
 </tr>

@@ -1,14 +1,18 @@
+use anyhow::anyhow;
 use dotenv::dotenv;
 use rocket::{
+    async_trait,
     fairing::{Fairing, Info, Kind},
     form::Form,
-    http::{Cookie, CookieJar},
+    get,
+    http::{Cookie, CookieJar, Status},
     post,
+    request::{FromRequest, Outcome},
     response::Redirect,
     uri, Data, FromForm, Request, State,
 };
-use rocket_governor::{Method, Quota, RocketGovernable, RocketGovernor};
-use std::{env, fs, num::NonZero, path::Path, sync::LazyLock};
+use rocket_governor::{LimitError, Method, Quota, RocketGovernable, RocketGovernor};
+use std::{env, num::NonZero, sync::LazyLock};
 
 pub struct RateLimitGuard;
 impl<'r> RocketGovernable<'r> for RateLimitGuard {
@@ -38,36 +42,82 @@ impl Fairing for Auth {
         }
     }
 }
-fn validate_cookie(cookie: Option<Cookie>) -> bool {
+pub(crate) fn validate_cookie(cookie: Option<Cookie>) -> bool {
     cookie.is_some_and(|cookie| cookie.value() == ADMIN_COOKIE.value())
 }
-const ADMIN_KEY: &'static str = "admin";
+pub(crate) const ADMIN_KEY: &'static str = "admin";
 const ADMIN_VALUE: &'static str = "true";
 const ADMIN_COOKIE: LazyLock<Cookie> = LazyLock::new(|| {
     let mut cookie = Cookie::new(ADMIN_KEY, ADMIN_VALUE);
     cookie.set_secure(true);
+    cookie.set_expires(None);
     cookie
 });
 #[derive(FromForm)]
 pub(crate) struct AdminForm {
     password: String,
 }
-#[post("/admin_submit", data = "<form>")]
-pub(crate) fn admin_submit(
+#[get("/auth_submit")]
+pub(crate) fn admin_submit_in(_admin_guard: AdminGuard) -> Redirect {
+    Redirect::to(uri!("/private/admin"))
+}
+#[post("/auth_remove")]
+pub(crate) fn auth_remove(cookies: &CookieJar<'_>, _admin_guard: AdminGuard) {
+    cookies.remove_private(ADMIN_KEY);
+}
+#[post("/auth_submit", data = "<form>")]
+pub(crate) fn auth_submit(
     form: Form<AdminForm>,
     password_state: &State<AuthState>,
     cookies: &CookieJar<'_>,
-    _limitguard: RocketGovernor<RateLimitGuard>,
+    _limitguard: GuessLimit,
 ) -> Redirect {
     if validate_cookie(cookies.get_private(ADMIN_KEY)) {
-        return Redirect::to("/admin_login?status=already");
+        return Redirect::to(uri!("/private/admin"));
     }
     if form.password.as_str() == password_state.0 {
         cookies.add_private(ADMIN_COOKIE.clone());
-        let written = cookies.get_pending(&ADMIN_KEY).unwrap();
-        let value = written.value();
-        fs::write(Path::new("./astro/auth"), value).unwrap();
-        return Redirect::to(uri!("/admin_login?status=ok"));
+        return Redirect::to(uri!("/private/admin"));
     }
-    Redirect::to(uri!("/admin_login?status=err"))
+    Redirect::to(uri!("/auth?status=err"))
+}
+pub(crate) struct GuessLimit;
+
+#[async_trait]
+impl<'r> FromRequest<'r> for GuessLimit {
+    type Error = LimitError;
+    async fn from_request(request: &'r Request<'_>) -> Outcome<Self, Self::Error> {
+        if validate_cookie(request.cookies().get_private(ADMIN_KEY)) {
+            return Outcome::Success(GuessLimit);
+        }
+        request
+            .guard::<RocketGovernor<RateLimitGuard>>()
+            .await
+            .map(|_| Self)
+    }
+}
+
+pub(crate) struct AdminGuard;
+#[async_trait]
+impl<'r> FromRequest<'r> for AdminGuard {
+    type Error = anyhow::Error;
+    async fn from_request(request: &'r Request<'_>) -> Outcome<Self, Self::Error> {
+        if validate_cookie(request.cookies().get_private(ADMIN_KEY)) {
+            Outcome::Success(Self)
+        } else {
+            Outcome::Error((Status::new(403), anyhow!("not admin")))
+        }
+    }
+}
+pub(crate) struct UnAdminGuard;
+#[async_trait]
+impl<'r> FromRequest<'r> for UnAdminGuard {
+    type Error = anyhow::Error;
+    async fn from_request(request: &'r Request<'_>) -> Outcome<Self, Self::Error> {
+        if !validate_cookie(request.cookies().get_private(ADMIN_KEY)) {
+            Outcome::Success(Self)
+        } else {
+            Outcome::Error((Status::new(403), anyhow!("not admin")))
+        }
+    }
 }
