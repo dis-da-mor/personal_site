@@ -5,21 +5,20 @@ interface Props{
     name: string;
     icon_name: string;
     verbosity: number;
-    projects: {name: string, repo: string}[];
+    projects: {name: string, link: string}[];
 }
-const {name, icon_name, verbosity: verbosity_number, projects} = Astro.props;
-let verbosity = "";
-if (verbosity_number < 1){
-    verbosity = "learning"
-}
-else if (verbosity_number < 2){
-    verbosity = "beginner"
-}
-else if (verbosity_number < 3){
-    verbosity = "intermediate"
-}
-else if (verbosity_number < 4){
-    verbosity = "advanced"
+const {name, icon_name, verbosity, projects} = Astro.props;
+function fill_between(arr: any[], pad: any): any[]{
+    const len = arr.length;
+    const new_arr = [];
+    for (let i = 0; i < len; i++) {
+        new_arr.push(arr[i]);
+        if (i === len - 1) {
+            continue;
+        }
+        new_arr.push(pad);
+    }
+    return new_arr;
 }
 ---
 
@@ -27,6 +26,8 @@ else if (verbosity_number < 4){
     <th scope="col">{name} <Icon name={icon_name}/> </th>
     <td>{verbosity}</td>
     <td>{
-    projects.map((project) => (<a class="text-white" href={project.repo}>{project.name}</a>))
+        fill_between(projects.map((project ) => (
+            <a class="text-white" href={project.link}>{project.name}</a>
+        )), (<span>, </span>))
     }</td>
 </tr>

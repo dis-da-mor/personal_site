@@ -10,7 +10,7 @@ const languages = language_collection.map((language) => language.data).map((data
     return {...data, 
         projects: projects
         .filter((project) => project.languages.includes(data.name))
-        .map((project) => ({name: project.name, repo: project.repo}))
+        .map((project) => ({name: project.name, link: project.link}))
     };
 }).sort((a, b) => a.rank - b.rank);
 ---
@@ -24,18 +24,18 @@ const languages = language_collection.map((language) => language.data).map((data
                 <thead>
                     <tr>
                         <th scope="col">name</th>
-                        <th scope="col">repo</th>
+                        <th scope="col">view</th>
                         <th scope="col">about</th>
                         <th scope="col">languages</th>
                   </tr>
                 </thead>
                 <tbody>
                     {
-                        projects.map(({name, description, repo, languages}) => {
+                        projects.map(({name, description, link: link, languages}) => {
                             return (
                                 <ProjectRow 
                                     name={name} 
-                                    link={repo}
+                                    link={link}
                                     description={description}
                                     languages={languages}
                                 }/>
@@ -53,7 +53,7 @@ const languages = language_collection.map((language) => language.data).map((data
                 <thead>
                     <tr>
                         <th scope="col">name</th>
-                        <th scope="col">level</th>
+                        <th scope="col">level (1-5)</th>
                         <th scope="col">projects</th>
                     </tr>
                 </thead>

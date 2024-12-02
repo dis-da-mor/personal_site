@@ -24,7 +24,7 @@ export const collections = {
         schema: z.object({
            name: z.string(),
            description: z.string(),
-           repo: z.string(),
+           link: z.string(),
            languages: z.array(z.string()),
            rank: z.number()
         })
