@@ -19,15 +19,14 @@ fn rocket() -> _ {
     let stat_state = stat_state();
     let auth_state = auth_state();
     rocket::custom(figment_gen())
-        .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
-        //        .mount("/", FileServer::from("./astro/dist").rank(10))
+        .register("/", catchers![rocket_governor_catcher])
         .mount("/", routes![files])
+        .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
+        .manage(stat_state)
         .mount("/", routes![stats, stat_generate])
         .attach(Auth)
-        .mount("/", routes![auth_submit, admin_submit_in, auth_remove])
-        .manage(stat_state)
         .manage(auth_state)
-        .register("/", catchers![rocket_governor_catcher])
+        .mount("/", routes![auth_submit, admin_submit_in, auth_remove])
 }
 
 fn figment_gen() -> Figment {
