@@ -7,7 +7,8 @@ export const collections = {
         schema: z.object({
            link: z.string(),
            name: z.string(),
-           icon_name: z.string()  
+           icon_name: z.string(),
+           rank: z.number()
         })
     }),
     "languages": defineCollection({

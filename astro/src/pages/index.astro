@@ -5,7 +5,7 @@ import Social from '../components/social.astro';
 import InfoPopup from '../components/info_popup.astro';
 import { getCollection, getEntry } from 'astro:content';
 const socials_collection = await getCollection("socials");
-const socials = socials_collection.map((social) => social.data);
+const socials = socials_collection.map((social) => social.data).sort((a, b) => a.rank - b.rank);
 ---
 
 <Layout>
