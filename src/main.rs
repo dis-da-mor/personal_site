@@ -1,15 +1,13 @@
-use auth::{admin_submit_in, auth_remove, auth_state, auth_submit, Auth};
+use auth::{auth_state, login, login_already, logout, Auth};
 use private::files;
 use rocket::{
     catchers,
     figment::{Figment, Profile},
-    fs::FileServer,
     launch, routes,
 };
 use rocket_governor::rocket_governor_catcher;
-use stat::{stat_generate, stat_state, stats};
+use stat::{stat_generate, stat_state};
 use std::{fs, path::Path};
-use user_agent_parser::UserAgentParser;
 mod auth;
 mod private;
 mod stat;
@@ -21,12 +19,11 @@ fn rocket() -> _ {
     rocket::custom(figment_gen())
         .register("/", catchers![rocket_governor_catcher])
         .mount("/", routes![files])
-        .manage(UserAgentParser::from_str(include_str!("regexes.yaml")).unwrap())
         .manage(stat_state)
-        .mount("/", routes![stats, stat_generate])
+        .mount("/", routes![stat_generate])
         .attach(Auth)
         .manage(auth_state)
-        .mount("/", routes![auth_submit, admin_submit_in, auth_remove])
+        .mount("/", routes![login, login_already, logout])
 }
 
 fn figment_gen() -> Figment {

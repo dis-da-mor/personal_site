@@ -9,6 +9,7 @@ use rocket::{
     post,
     request::{FromRequest, Outcome},
     response::Redirect,
+    serde::{json::Json, Serialize},
     uri, Data, FromForm, Request, State,
 };
 use rocket_governor::{LimitError, Method, Quota, RocketGovernable, RocketGovernor};
@@ -57,16 +58,34 @@ const ADMIN_COOKIE: LazyLock<Cookie> = LazyLock::new(|| {
 pub(crate) struct AdminForm {
     password: String,
 }
-#[get("/auth_submit")]
-pub(crate) fn admin_submit_in(_admin_guard: AdminGuard) -> Redirect {
+#[get("/login")]
+pub(crate) fn login_already(_admin_guard: AdminGuard) -> Redirect {
     Redirect::to(uri!("/private/admin"))
 }
-#[post("/auth_remove")]
-pub(crate) fn auth_remove(cookies: &CookieJar<'_>, _admin_guard: AdminGuard) {
-    cookies.remove_private(ADMIN_KEY);
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+pub(crate) struct LogoutReturn {
+    message: String,
+    good: bool,
 }
-#[post("/auth_submit", data = "<form>")]
-pub(crate) fn auth_submit(
+#[get("/logout")]
+pub(crate) fn logout(cookies: &CookieJar<'_>) -> Json<LogoutReturn> {
+    let out = if validate_cookie(cookies.get_private(ADMIN_KEY)) {
+        cookies.remove_private(ADMIN_KEY);
+        LogoutReturn {
+            message: "logged out".to_string(),
+            good: true,
+        }
+    } else {
+        LogoutReturn {
+            message: "not logged in".to_string(),
+            good: false,
+        }
+    };
+    Json(out)
+}
+#[post("/login", data = "<form>")]
+pub(crate) fn login(
     form: Form<AdminForm>,
     password_state: &State<AuthState>,
     cookies: &CookieJar<'_>,
@@ -75,11 +94,11 @@ pub(crate) fn auth_submit(
     if validate_cookie(cookies.get_private(ADMIN_KEY)) {
         return Redirect::to(uri!("/private/admin"));
     }
-    if form.password.as_str() == password_state.0 {
-        cookies.add_private(ADMIN_COOKIE.clone());
-        return Redirect::to(uri!("/private/admin"));
+    if form.password.as_str() != password_state.0 {
+        return Redirect::to(uri!("/admin_add?status=err"));
     }
-    Redirect::to(uri!("/auth?status=err"))
+    cookies.add_private(ADMIN_COOKIE.clone());
+    Redirect::to(uri!("/private/admin"))
 }
 pub(crate) struct GuessLimit;
 

@@ -1,0 +1,7 @@
+{
+    "name": "ulina site",
+    "description": "archived website, discord bot and database for a community world-building project",
+    "link": "https://github.com/dis-da-mor/ulina_site",
+    "languages": ["typescript", "C#", "rust"],
+    "rank": 9
+}

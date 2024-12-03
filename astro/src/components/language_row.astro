@@ -27,7 +27,7 @@ function fill_between(arr: any[], pad: any): any[]{
     <td>{verbosity}</td>
     <td>{
         fill_between(projects.map((project ) => (
-            <a class="text-white" href={project.link}>{project.name}</a>
+            <a class="text-white" href={project.link}>{project.name.replaceAll(" ", "_")}</a>
         )), (<span>, </span>))
     }</td>
 </tr>

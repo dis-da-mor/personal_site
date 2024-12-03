@@ -8,7 +8,7 @@ interface Props{
 const {name, description,  languages, link} = Astro.props;
 ---
 
-<tr>
+<tr class="text-white">
     <th scope="col">{name}</th>
     <td><a href={link} class="text-white">link</a></td>
     <td class="width-30">{description}</td>

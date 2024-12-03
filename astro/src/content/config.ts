@@ -29,5 +29,21 @@ export const collections = {
            languages: z.array(z.string()),
            rank: z.number()
         })
+    }),
+    "music": defineCollection({
+        type: "data",
+        schema: z.object({
+            name: z.string(),
+            description: z.string(),
+            music: z.string(),
+            date: z.string().transform((str) => new Date(str)),
+            image: z.string(),
+            bandcamp: z.string(),
+            links: z.array(z.object({
+                name: z.string(),
+                link: z.string()
+            })),
+            includes: z.array(z.string())
+        })
     })
 };

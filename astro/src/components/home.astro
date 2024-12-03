@@ -1,0 +1,16 @@
+---
+interface Props{
+    display?: boolean,
+    back?: boolean
+}
+const {display: display_bool, back: back_bool} = Astro.props;
+let display = "initial";
+if (display_bool === false){
+    display = "none";
+}
+let back = "";
+if (back_bool === true){
+    back = "< ";
+}
+---
+<button id="home_button" class="btn" style=`display: ${display}`><a href="/">{back}home</a></button>

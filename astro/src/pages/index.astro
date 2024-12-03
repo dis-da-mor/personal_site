@@ -10,7 +10,7 @@ const socials = socials_collection.map((social) => social.data).sort((a, b) => a
 
 <Layout>
 	<main>
-		<p class="head">dis_da_mør</p>
+	<p class="head">dis_da_mør</p>
 		<p class="text-sub">
 			Hi I'm mør
 			<InfoPopup text="arabic: مُر, romanized: mor"/>
@@ -21,16 +21,31 @@ const socials = socials_collection.map((social) => social.data).sort((a, b) => a
 				<Interest name="music" description="electric guitar and electronic music" icon_name="music"/>
 				<Interest name="art" description="drawing, digital or physical" icon_name="brush"/>
 		  </div>
-		<p class="text-sub mt-2">
+		<p class="text-sub mt-3">
 			You can find me on:
 		</p>
-		<div class="row d-flex justify-content-center">
+		<div class="row d-flex justify-content-center mt-4">
 			{
 				socials.map((social) => {
 					return (<Social link={social.link} icon_name={social.icon_name} name={social.name}/>);
 				})
 			}
 		</div>
+	<div class="border-top mt-5">
+	    <div class="container text-md-start mt-2">	
+			<div class="row text-center mb-3">
+				<a href="https://github.com/dis-da-mor/personal_site">source</a>
+			</div>
+			<div class="row text-center mb-3">
+				<div>
+					feel free to share and adapt, as long as you don't use this for commercial purposes, attribute me, release under the same license, and add no additional restrictions
+				</div>
+			</div>
+			<div class="row text-center mb-3">
+				<span>License: </span><span><a href="/LICENSE.md">CC BY-NC-SA 4.0</a></span>
+			</div>
+		</div>
+	</div>
 </main>
 </Layout>
 

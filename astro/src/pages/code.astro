@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import LanguageRow from "../components/language_row.astro";
 import Layout from "../layouts/Layout.astro";
 import ProjectRow from "../components/project_row.astro";
+import Home from "../components/home.astro";
+import PageHead from "../components/page_head.astro";
 const projects_collection = await getCollection("projects");
 const projects = projects_collection.map((project) => project.data).sort((a, b) => a.rank - b.rank);
 const language_collection = await getCollection("languages");
@@ -16,12 +18,11 @@ const languages = language_collection.map((language) => language.data).map((data
 ---
 <Layout>
     <main>
-        <p class="head">code</p>
+        <PageHead>code</PageHead>
         <p class="text-sub">projects:</p>
-        <div class="container flex-d justify-content-center mx-2">
-            <div class="table-responsive">
-            <table class="table text-white">
-                <thead>
+        <div class="container flex-d justify-content-center mx-auto mb-5 mt-2">
+            <table class="table text-white table-striped table-bordered">
+                <thead class="text-center align-middle">
                     <tr>
                         <th scope="col">name</th>
                         <th scope="col">view</th>
@@ -29,7 +30,7 @@ const languages = language_collection.map((language) => language.data).map((data
                         <th scope="col">languages</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle text-center">
                     {
                         projects.map(({name, description, link: link, languages}) => {
                             return (
@@ -44,20 +45,18 @@ const languages = language_collection.map((language) => language.data).map((data
                     }
                 </tbody>
             </table>
-            </div>
         </div>
          <p class="text-sub">languages:</p>
-        <div class="container flex-d justify-content-center mx-2">
-            <div class="table-responsive">
-            <table class="table text-white">
-                <thead>
+        <div class="container flex-d justify-content-center mx-auto mb-3">
+            <table class="table text-white table-bordered">
+                <thead class="text-center align-middle">
                     <tr>
                         <th scope="col">name</th>
                         <th scope="col">level (1-5)</th>
                         <th scope="col">projects</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle text-center">
                     {
                         languages.map(({name, icon_name, verbosity, projects}) => {
                             return (
@@ -72,7 +71,6 @@ const languages = language_collection.map((language) => language.data).map((data
                     }
                 </tbody>
             </table>
-            </div>
         </div>
    </main>
 </Layout>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import PageHead from "../components/page_head.astro";
+import Layout from "../layouts/Layout.astro";
+import Track from "../components/track.astro";
+const music_collection = await getCollection("music");
+const music = music_collection.map((music) => music.data);
+---
+
+<Layout>
+    <PageHead>music</PageHead>
+    <div class="container">
+        <p>I started learning the electric guitar in 2020 and it's my favourite instrument. Shortly after that I began to produce music, mostly electronic. I've release a few tracks, and they are all here. They can be downloaded for free, either here or on bandcamp. Feel free to upload the files to spotify to avoid subscribing.</p>
+    </div>
+    <input type="text"></input>
+    <div class="container">
+        {music.map((section) => {
+            (<Track 
+                name={section.name}
+                description={section.description}
+                image={section.image}
+                music={section.music}
+                bandcamp={section.bandcamp}
+                date={section.date}
+                includes={section.includes}
+                links={section.links}
+            />)
+        })}
+    </div>
+</Layout>

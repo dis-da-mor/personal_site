@@ -1,0 +1,23 @@
+---
+interface Props{
+    name: string;
+    description: string;
+    image: string;
+    music: string;
+    bandcamp: string;
+    links: {name: string, link: string}[];
+    date: Date;
+    includes: string[]
+}
+const {name, description, image, music, bandcamp, links, date, includes} = Astro.props;
+---
+<div class="container border">
+    <div class="h4">{name}</div>
+    <p>{description}</p>
+    <img src={image} alt=`${name} cover`>
+    <audio src={music}>play</audio>
+    {bandcamp}
+    <p>{date}</p>
+    <p>{links}</p>
+    <p>{includes}</p>
+</div>
