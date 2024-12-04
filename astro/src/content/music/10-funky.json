@@ -1,0 +1,21 @@
+{
+    "name": " Pretty Funky - by Yo.Yo.Co.",
+    "description": "a kinda funky track. recorded in my previous school with a drummer, bassist, and singer.",
+    "file_name": "PrettyFunky",
+    "date": "2022-09-03",
+    "bandcamp_embed": {
+        "large": "https://bandcamp.com/EmbeddedPlayer/track=134596523/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/transparent=true/",
+        "small": "https://bandcamp.com/EmbeddedPlayer/track=134596523/size=small/bgcol=191a1a/linkcol=316490/transparent=true/" 
+    },
+    "links": [{
+        "name": "bandcamp",
+        "link": "https://disdamor.bandcamp.com/track/pretty-funky-by-yo-yo-co"
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/7S7wHGJwPCQ?si=6XzWlzQlLy2f9GEh"
+    }
+    ],
+    "lyrics": true,
+    "video": true
+}

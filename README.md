@@ -9,10 +9,7 @@ my site
 
 ## TODO
 
-- fill in music collection
-- do track component include bandcamp embed
+- make stats page
+- make art page
 - do animals page with pets
 - [nord](https://www.nordtheme.com/docs/colors-and-palettes)
-- make art page
-- make stats page
-- do blog part

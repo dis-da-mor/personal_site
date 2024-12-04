@@ -4,7 +4,7 @@ $color2: #3b4252;
 $color3: #4c566a;
 
 $primary: $color0;
-
+$accordion-color: white;
 @import "./bootstrap_scss/bootstrap.scss";
 @font-face {
     font-family: "CascadiaCode";
@@ -74,4 +74,10 @@ body{
 
 .width-30{
     width: 30%;
+}
+
+.accordion-style{
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 3px inset $color3 !important;
+    @extend .text-white;
 }

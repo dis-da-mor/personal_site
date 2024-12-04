@@ -1,0 +1,14 @@
+{
+    "name": "what is happening here",
+    "description": "first song released",
+    "file_name": "WhatIsHappeningHere",
+    "date": "2021-03-15",
+    "bandcamp_embed": {
+        "large": "https://bandcamp.com/EmbeddedPlayer/track=446341313/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/transparent=true/ ",
+        "small": "https://bandcamp.com/EmbeddedPlayer/track=446341313/size=small/bgcol=191a1a/linkcol=316490/transparent=true/ "
+    },
+    "links": [{
+        "name": "bandcamp",
+        "link": "https://disdamor.bandcamp.com/track/what-is-happening-here"
+    }]
+}

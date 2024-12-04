@@ -35,15 +35,19 @@ export const collections = {
         schema: z.object({
             name: z.string(),
             description: z.string(),
-            music: z.string(),
+            file_name: z.string(),
             date: z.string().transform((str) => new Date(str)),
-            image: z.string(),
-            bandcamp: z.string(),
+            bandcamp_embed: z.object({
+                large: z.string(),
+                small: z.string()
+            }),
             links: z.array(z.object({
                 name: z.string(),
                 link: z.string()
             })),
-            includes: z.array(z.string())
+            parent: z.optional(z.string()),
+            lyrics: z.optional(z.boolean()),
+            video: z.optional(z.boolean())
         })
     })
 };

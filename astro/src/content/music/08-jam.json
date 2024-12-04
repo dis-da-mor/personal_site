@@ -1,0 +1,14 @@
+{
+    "name": " Jam Out! - tap",
+    "description": "made for a game jam",
+    "file_name": "JamOut!-tap",
+    "date": "2021-08-01",
+    "bandcamp_embed": {
+        "large": "https://bandcamp.com/EmbeddedPlayer/track=3677537238/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/transparent=true/",
+        "small": "https://bandcamp.com/EmbeddedPlayer/track=3677537238/size=small/bgcol=191a1a/linkcol=316490/transparent=true/"
+    },
+    "links": [{
+    	"name": "bandcamp",
+    	"link": "https://disdamor.bandcamp.com/track/jam-out-tap"
+    }]
+}
