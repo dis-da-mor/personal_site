@@ -1,19 +1,11 @@
 from fitbert import FitBert
 from random import random, choices
 import transformers
-import socket
-import os
-import sys
+import zmq
 
-socket_path = "/tmp/sock"
-try:
-    os.unlink(socket_path)
-except OSError:
-    pass
-
-sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-sock.bind(socket_path)
-sock.listen()
+context = zmq.Context()
+socket = context.socket(zmq.REP)
+socket.bind("tcp://*:5555")
 
 def list_from_file(path):
     with open(path, "r") as file:
@@ -30,8 +22,7 @@ def stat_masked(word):
     return f"{number}% of {word} are ***mask***.", number, word
 
 while True:
-    conn, _ = sock.accept()
-    data = conn.recv(65534).decode()
+    data = socket.recv().decode()
 
     text_input = data.split()
     input_len = len(text_input)
@@ -52,5 +43,5 @@ while True:
     elif consider >= len(ranked):
         consider = len(ranked) - 1
     chosen = choices(ranked[:consider])[0].strip()
-    conn.send(f"{number_out} {word_out} {chosen}".encode())
-    conn.close()
+    socket.send(f"{number_out} {word_out} {chosen}".encode())
+

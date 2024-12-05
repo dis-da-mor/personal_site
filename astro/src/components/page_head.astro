@@ -1,9 +1,27 @@
 ---
 import Home from "./home.astro";
-
+interface Props{
+    absolute?: boolean;
+    nav?: string;
+}
+let {absolute, nav } = Astro.props;
 ---
 
-<span style="position: absolute;" class="float float-start">
-    <Home back={true}/>
-</span>
-<p class="head"><slot/></p>
+{
+    [absolute].filter((x) => x !== false).map(() => (
+        <span style="position: absolute;" class="float float-start">
+            <Home back={true} nav={nav}/>
+        </span>
+        <p class="head"><slot/></p>
+    ))
+}
+{
+    [absolute].filter((x) => x === false).map(() => (
+        <div>
+            <Home back={true} nav={nav}/>
+        </div>
+        <div>
+            <p class="head"><slot/></p>
+        </div>
+    ))
+}

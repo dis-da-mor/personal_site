@@ -81,3 +81,31 @@ body{
     border: 3px inset $color3 !important;
     @extend .text-white;
 }
+#noun_input {
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 2px inset gray;
+    @extend .text-center;
+    @extend .text-white;
+}
+.stat-col{
+    @extend .col-auto;
+    @extend .display-5;
+}
+.bandcamp-embeds{
+    max-width: 690px;
+}
+.accordion-button:not(.collapsed)::after {
+	background-color: gray;
+}
+.music-collapse{
+    background-color: rgba($color: #000000, $alpha: 0);
+    @extend .text-center;
+    @extend .mx-0;
+    width: fit-content;
+}
+.upside-down{
+    transform:rotate(180deg);
+}
+#triangle{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(122deg) brightness(105%) contrast(101%);
+}

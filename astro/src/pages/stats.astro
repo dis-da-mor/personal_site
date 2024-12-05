@@ -1,0 +1,110 @@
+---
+import { Icon } from "astro-icon/components";
+import InfoPopup from "../components/info_popup.astro";
+import PageHead from "../components/page_head.astro";
+import Layout from "../layouts/Layout.astro";
+
+---
+<Layout>
+    <PageHead absolute={false} nav="code">Totally True Stats</PageHead>
+    <p id="loading" class="display-3">loading...</p>
+    <div class="container my-4">
+        <div class="row justify-content-center mb-3">
+            <div class="col-auto gx-0">
+                <label class="col-auto">generate for:</label>
+                <input autocomplete="off" id="noun_input" class="col-auto">
+            </div>
+            <div class="col-auto gx-0">
+                <button id="delete">
+                    <Icon name="mdi:delete-outline"/>
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center container-fluid mt-2">
+            <p class="stat-col" id="percent">??</p>
+            <p class="stat-col">% </p>
+            <p class="stat-col">of </p>
+            <p class="stat-col" id="noun">???</p>
+            <p class="stat-col">are </p>
+            <p class="stat-col" id="adjective">???????</p>
+    </div>
+    <div class="row mb-3 justify-content-center">
+        <label for="random" class="col-auto">Randomness:</label>
+        <input autocomplete="off" id="random" type="range" class="col-auto slider">
+    </div>
+    <div class="row mb-5 justify-content-center">
+        <div class="col-auto">
+            <button disabled ="btn btn-lg btn-dark border-white" type="button" id="generate">
+                generate
+            </button>
+        </div>
+    </div>
+    <div class="row flex-d justify-content-center text-center">
+        <InfoPopup info={false} text="Click the button to generate a silly statistic. Randomness slider affects how much sense it makes.">
+            <button class="btn display-5 text-white">
+                <a>Info &#9432;</a>
+            </button>
+        </InfoPopup>
+    </div>
+</Layout>
+<script>
+import { undefined } from "astro:schema";
+
+    function some_or_throw(id: string): HTMLElement{
+        const element = document.getElementById(id);
+        if (element === null){
+            throw `no element with id ${id}`;
+        }
+        else{
+            return element;
+        }
+    }
+    const percent = some_or_throw("percent") as HTMLParagraphElement;
+    const noun = some_or_throw("noun") as HTMLParagraphElement;
+    const noun_input = some_or_throw("noun_input") as HTMLInputElement;
+    const adjective = some_or_throw("adjective") as HTMLParagraphElement;
+    const random = some_or_throw("random") as HTMLInputElement;
+    const generate = some_or_throw("generate") as HTMLButtonElement;
+    const loading = some_or_throw("loading") as HTMLParagraphElement;
+    const delete_button = some_or_throw("delete") as HTMLButtonElement;
+    const ability = (able: boolean) => {
+        generate.disabled = !able;
+        noun_input.disabled = !able;
+    };
+    let changed = false;
+    noun_input.onchange = () => {
+        changed = true;
+    };
+    delete_button.onclick = () => {
+        noun_input.value = "";
+        changed = false;
+    };
+    noun_input.addEventListener("keydown", (event) => {
+        const typed = event.key;
+        if (!(/^[A-Za-z]+$/.test(typed))){
+            event.preventDefault();
+        }
+    });
+    generate.onclick = async () => {
+        ability(false);
+        const randomness = 1 - Math.max(Math.min(Math.round(parseFloat(random.value) / 10) / 10, 0.9), 0.1);
+        let url = `/stat_generate?randomness=${randomness}`;
+        if (changed){
+            url = `${url}&word=${noun_input.value}`;
+        }
+        const response: {percent: string, noun: string, adjective: string} = (
+            await (
+                await fetch(url)
+            ).json()
+        );
+        if (changed){
+            noun_input.value = response.noun;
+        }
+        percent.textContent = response.percent;
+        noun.textContent = response.noun;
+        adjective.textContent = response.adjective;
+        ability(true);
+    }
+    ability(true);
+    loading.remove()
+</script>

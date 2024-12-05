@@ -32,11 +32,12 @@ const languages = language_collection.map((language) => language.data).map((data
                 </thead>
                 <tbody class="align-middle text-center">
                     {
-                        projects.map(({name, description, link: link, languages}) => {
+                        projects.map(({name, description, link: link, languages, link_name}) => {
                             return (
                                 <ProjectRow 
                                     name={name} 
                                     link={link}
+                                    link_name={link_name}
                                     description={description}
                                     languages={languages}
                                 }/>

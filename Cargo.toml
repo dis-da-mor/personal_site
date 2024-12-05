@@ -9,3 +9,4 @@ dotenv = "0.15.0"
 getrandom = "0.2.15"
 rocket = {version = "0.5.1", features = ["secrets", "tls", "json"]}
 rocket-governor = "0.2.0-rc.3"
+zmq = "0.10.0"

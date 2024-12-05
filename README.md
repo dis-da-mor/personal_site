@@ -9,7 +9,4 @@ my site
 
 ## TODO
 
-- make stats page
-- make art page
-- do animals page with pets
 - [nord](https://www.nordtheme.com/docs/colors-and-palettes)

@@ -26,6 +26,7 @@ export const collections = {
            name: z.string(),
            description: z.string(),
            link: z.string(),
+           link_name: z.optional(z.string()),
            languages: z.array(z.string()),
            rank: z.number()
         })

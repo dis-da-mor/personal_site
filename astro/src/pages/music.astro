@@ -4,6 +4,7 @@ import PageHead from "../components/page_head.astro";
 import Layout from "../layouts/Layout.astro";
 import Track from "../components/track.astro";
 import Social from "../components/social.astro";
+import { Icon } from "astro-icon/components";
 const music_collection = await getCollection("music");
 const music = music_collection.map((music) => music.data).reverse();
 const social_collection = await getCollection("socials");
@@ -14,12 +15,44 @@ const socials = social_collection.map((social) => social.data).filter((social) =
 <Layout>
     <PageHead>music</PageHead>
     <div class="container">
-        <p>I started learning the electric guitar in 2020 and it's my favourite instrument.
+        <p>
+            I started learning the electric guitar in 2020 and it's my favourite instrument.
             Shortly after that I began to produce music, mostly electronic. 
+            <br>
+            <br>
             I've released a few tracks, and they are all here. 
+            <br>
+            <br>
             They can be downloaded for free, either here or on bandcamp. 
             Feel free to upload the files to spotify to avoid subscribing.
         </p>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="container d-flex justify-content-center row row-cols-1 mb-3">
+        <div class="row">
+            <div class="col d-flex justify-content-center mb-1">
+                <button class="music-collapse" id="collapse-button">
+                    More info
+                    <img id="triangle" class="upside-down" src="arrow.svg"/>
+                </button>
+            </div>
+        </div>
+        <div class="row" id="collapse-part">
+            <div class="col">
+                I used to make music through Logic Pro (yes I definitely had a real MacOS nothing to see here apple). 
+                I use my Fender Player guitar and BOSS Katana-100 mk2.   
+                I have now tried to move to another DAW and I'm still working on my first track for that.
+                My previous music teacher, family, and friends all deserve a large thanks for dealing with my noises.
+            </div>
+            <div>
+                <br>
+                I love electronic (C418), 
+                and I enjoy rock (Pink Floyd, King Crimson),
+                 video game music (Lena Raine, Toby Fox, Andrew Prahlow)
+                and others (Jack Stauber, Gorillaz, NF)
+            </div>
+        </div>
+    </div>
     </div>
     <div class="container text-center mt-3 mb-2" style="font-size: large;">
         I post on these platforms:
@@ -39,3 +72,29 @@ const socials = social_collection.map((social) => social.data).filter((social) =
         }
     </div>
 </Layout>
+<script>
+    function some_or_throw(id: string): HTMLElement{
+        const element = document.getElementById(id);
+        if (element === null){
+            throw `no element with id ${id}`;
+        }
+        return element;
+    }
+    const button = some_or_throw("collapse-button");
+    const part = some_or_throw("collapse-part");
+    const triangle = some_or_throw("triangle");
+
+    let upside_down = true;
+    part.style.display = "none";    
+    button.onclick = () => {
+        if (upside_down){
+            triangle.classList.remove("upside-down");
+            part.style.display = "initial";
+        }
+        else {
+            triangle.classList.add("upside-down");
+            part.style.display = "none";
+        }
+        upside_down = !upside_down;
+    }   
+</script>
