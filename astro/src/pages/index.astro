@@ -4,6 +4,7 @@ import Interest from '../components/interest.astro';
 import Social from '../components/social.astro';
 import InfoPopup from '../components/info_popup.astro';
 import { getCollection, getEntry } from 'astro:content';
+import License from '../components/license.astro';
 const socials_collection = await getCollection("socials");
 const socials = socials_collection.map((social) => social.data).sort((a, b) => a.rank - b.rank);
 ---
@@ -13,12 +14,13 @@ const socials = socials_collection.map((social) => social.data).sort((a, b) => a
 	<p class="head">dis_da_mør</p>
 		<p class="text-sub">
 			Hi I'm mør
-			<InfoPopup text="arabic: مُر, romanized: mor"/>
+			<InfoPopup text="arabic: مُر, anglicized: mor"/>
 			, I have an interest in:
 		</p>
 		<div class="row mx-2 d-flex justify-content-center gap-3 mt-2">
 				<Interest name="code" description="programming computers" icon_name="code"/>
 				<Interest name="music" description="electric guitar and electronic music" icon_name="music"/>
+				<Interest name="art" description="drawing doodles" icon_name="brush"/>
 		  </div>
 		<p class="text-sub mt-3">
 			You can find me on:
@@ -36,15 +38,8 @@ const socials = socials_collection.map((social) => social.data).sort((a, b) => a
 				<a href="https://github.com/dis-da-mor/personal_site">source</a>
 			</div>
 			<div class="row text-center mb-3 justify-content-center">
-				<div class="col-sm-auto">
-					<a href="/LICENSE.md">CC BY-NC-SA 4.0</a></span>
-				</div>
-				<div class="col-sm-auto">
-				<span>
-					<InfoPopup text="feel free to share and adapt, as long as you don't use this for commercial purposes, attribute me, release under the same license, and add no additional restrictions"/>
-				</span>
-				</div>
-		</div>
+				<License/>
+			</div>
 		</div>
 	</div>
 </main>

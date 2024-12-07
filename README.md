@@ -9,4 +9,4 @@ my site
 
 ## TODO
 
-- [nord](https://www.nordtheme.com/docs/colors-and-palettes)
+- make logo and make it the favicon

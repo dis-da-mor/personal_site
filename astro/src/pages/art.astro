@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import License from "../components/license.astro";
+import PageHead from "../components/page_head.astro";
+import Layout from "../layouts/Layout.astro";
+const art_collection = await getCollection("art");
+const art = art_collection.map((art) => art.data).reverse();
+---
+
+<Layout>
+    <PageHead>art</PageHead>
+    <div class="container">
+        <p>
+            I like to draw digitally sometimes, so here are a few drawings I've made. 
+            I don't take art very seriously, but I have enjoyed making these pieces. 
+            All are under the same license as the site (<License inline={true}/>).
+        </p>
+        <p class="text-sub">drawings:</p>
+        <div class="row mt-3 mb-2 justify-content-center gy-3 mx-auto">
+        {
+            art.map((piece) => (
+                <div class="col-auto" style="max-width: min-content;">
+                    <img class="art-image" src={`/large/art/${piece.file_name}.png`} alt={`${piece.name}`}>
+                    <p><a href={`/large/art/${piece.file_name}.png`}>{piece.name}</a></p>
+                    <p>{piece.description}</p>
+                </div>
+            ))
+        }   
+        </div>
+    </div>
+</Layout>

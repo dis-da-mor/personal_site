@@ -21,7 +21,7 @@ let addition = "";
 let dir = social_json.file_name;
 if (typeof social_json.parent !== "undefined"){
     addition = ` (${social_json.parent})`;
-    dir = social_json.parent;
+    dir = social_json.parent.replace(" ", "");
 }
 const collapse_id = `${social_json.file_name}_collapse`
 ---
@@ -33,7 +33,7 @@ const collapse_id = `${social_json.file_name}_collapse`
                 {`${social_json.name}${addition}`}
             </div>
             <div class="col-auto">
-                <img src=`/music/${dir}/cover.jpg` alt=`${social_json.name} cover image` width="40px">
+                <img src=`/large/music/${dir}/cover.jpg` alt=`${social_json.name} cover image` width="40px">
             </div>
         </div>
       </button>
@@ -47,17 +47,17 @@ const collapse_id = `${social_json.file_name}_collapse`
                 {
                     [social_json.video].filter((video) => video === true).map((_) => (
                         <div class="row my-3">
-                            <video src=`/music/${dir}/${social_json.file_name}.mp4` controls></video>
+                            <video src=`/large/music/${dir}/${social_json.file_name}.mp4` controls></video>
                         </div>
                     ))
                 }
-                <div class="row mt-2 bandcamp_embeds">
+                <div class="row mt-2 bandcamp-embeds">
                     <iframe style="border: 0; width: 100%; height: 120px;" class="d-none d-sm-none d-md-block" src={social_json.bandcamp_embed.large} seamless></iframe> 
                     <iframe style="border: 0; width: 100%; height: 42px;" class="d-md-none" src={social_json.bandcamp_embed.small} seamless></iframe> 
                 </div>
                  {[social_json.lyrics].filter((x) => x === true).map((_) => (
                 <div class="row mt-2">
-                    <a href=`/music/${dir}/lyrics.md`>lyrics</a>
+                    <a href=`/large/music/${dir}/lyrics.md`>lyrics</a>
                 </div>))}
                <div class="row mt-3">
                     <div class="col-auto">found at:</div>
@@ -72,7 +72,7 @@ const collapse_id = `${social_json.file_name}_collapse`
                 {
                 ["mp3", "flac", "wav"].map((format) => (
                     <div class="col-auto">
-                        <a href=`/music/${dir}/${social_json.file_name}.${format}`>
+                        <a href=`/large/music/${dir}/${social_json.file_name}.${format}`>
                             {format}
                         </a>
                     </div>

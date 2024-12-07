@@ -50,5 +50,13 @@ export const collections = {
             lyrics: z.optional(z.boolean()),
             video: z.optional(z.boolean())
         })
+    }),
+    "art": defineCollection({
+        type: "data",
+        schema: z.object({
+            name: z.string(),
+            file_name: z.string(),
+            description: z.optional(z.string())
+        })
     })
 };

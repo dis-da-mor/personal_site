@@ -41,6 +41,7 @@ a:hover{
 .interest-container{
     border-radius: 0px;
     max-width: 260px;
+    width: fit-content;
 }
 .interest-container:hover{
     outline: 1px inset white;
@@ -92,7 +93,7 @@ body{
     @extend .display-5;
 }
 .bandcamp-embeds{
-    max-width: 690px;
+    max-width: 600px;
 }
 .accordion-button:not(.collapsed)::after {
 	background-color: gray;
@@ -108,4 +109,9 @@ body{
 }
 #triangle{
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(122deg) brightness(105%) contrast(101%);
+}
+
+.art-image{
+    max-width: 20vw;
+    max-height: 200px;
 }
