@@ -9,4 +9,5 @@ my site
 
 ## TODO
 
-- make logo and make it the favicon
+- animals (have pets?)
+- graph editor
