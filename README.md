@@ -1,5 +1,7 @@
 # personal_site
 
+https://disdamor.me
+
 my personal website for showing what interests me.
 
 ## Running
