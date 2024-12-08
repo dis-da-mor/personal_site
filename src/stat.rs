@@ -5,9 +5,7 @@ use rocket::{
     State,
 };
 use std::{
-    env,
-    io::{Read, Write},
-    os::unix::net::UnixStream,
+    env::{self, current_dir},
     path::Path,
     process::{Command, Stdio},
     sync::Mutex,
@@ -29,7 +27,7 @@ pub(crate) fn stat_generate(
     randomness: f64,
     word: Option<String>,
 ) -> Result<Json<StatResponse>, Status> {
-    let mut socket = socket.lock().map_err(|_| Status::new(500))?;
+    let socket = socket.lock().map_err(|_| Status::new(500))?;
     socket
         .send(
             format!("{randomness} {}", word.unwrap_or_else(|| "".to_string())).as_bytes(),
@@ -58,7 +56,7 @@ pub(crate) fn stat_generate(
 }
 
 pub(crate) fn stat_state() -> Mutex<Socket> {
-    let original_dir = env::current_dir().unwrap();
+    let original_directory = current_dir().unwrap();
     let target_path = Path::new("./model_python")
         .canonicalize()
         .expect("no 'model_python' directory");
@@ -69,10 +67,10 @@ pub(crate) fn stat_state() -> Mutex<Socket> {
             .output()
             .unwrap();
     });
-
+    thread::sleep(Duration::from_secs(5));
     let context = zmq::Context::new();
     let socket = context.socket(zmq::REQ).unwrap();
     socket.connect("tcp://localhost:5555").unwrap();
-
+    env::set_current_dir(original_directory).unwrap();
     Mutex::new(socket)
 }

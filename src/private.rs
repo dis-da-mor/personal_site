@@ -1,7 +1,4 @@
-use std::{
-    ffi::OsStr,
-    path::{Component, Path, PathBuf},
-};
+use std::path::{Component, Path, PathBuf};
 
 use rocket::{
     fs::{relative, NamedFile},
