@@ -22,10 +22,11 @@ const art = art_collection.map((art) => art.data).reverse();
         {
             art.map((piece) => (
                 <div class="art-col">
-                    <img class="img-thumbnail" src={`/large/art/${piece.file_name}.png`} alt={`${piece.name}`}>
-                    <a href={`/large/art/${piece.file_name}.png`}>{piece.name}</a>
+                    <img class="img-thumbnail" src={`/large/art/${piece.file_name}_small.png`} alt={`${piece.name}`}>
+                    <p class="mt-1 h5"><u>{piece.name}</u></p>
                     <p>{piece.description}</p>
-                </div>
+                    <a href={`/large/art/${piece.file_name}.png`}>view</a>
+               </div>
             ))
         }   
         </div>
