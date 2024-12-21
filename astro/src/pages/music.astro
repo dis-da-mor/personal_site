@@ -8,7 +8,7 @@ import { Icon } from "astro-icon/components";
 const music_collection = await getCollection("music");
 const music = music_collection.map((music) => music.data).reverse();
 const social_collection = await getCollection("socials");
-const include = ["bandcamp", "spotify", "youtube"];
+const include = ["bandcamp", "spotify", "youtube", "apple music", "amazon music"];
 const socials = social_collection.map((social) => social.data).filter((social) => include.includes(social.name));
 ---
 
@@ -24,7 +24,7 @@ const socials = social_collection.map((social) => social.data).filter((social) =
             <br>
             <br>
             They can be downloaded for free, either here or on bandcamp. 
-            Feel free to upload the files to spotify to avoid subscribing.
+            Feel free to upload the files to any platform you'd like.
         </p>
     </div>
     <div class="d-flex justify-content-center">

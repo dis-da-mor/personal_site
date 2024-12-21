@@ -8,8 +8,20 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=2426386430/transparent=true/"
     },
     "links": [{
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/34wRsimHGP3JmrsJBqP7Ph?si=dd108b9e87bb4fe2"
+    },
+    {
     	"name": "bandcamp",
     	"link": "https://disdamor.bandcamp.com/track/perch"
+    },
+    {
+        "name":"apple music",
+        "link":"https://music.apple.com/us/album/perch/1785722011?i=1785722015"
+    },
+    {
+        "name":"amazon music",
+        "link":"https://music.amazon.com/tracks/B0DQLWG16V?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_lai1jazHTqiy8xYxn8WDDwvlE"
     }],
     "parent": "Initial Songs"
 }

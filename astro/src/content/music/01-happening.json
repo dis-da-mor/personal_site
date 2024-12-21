@@ -8,7 +8,19 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/track=446341313/size=small/bgcol=191a1a/linkcol=316490/transparent=true/ "
     },
     "links": [{
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/39lqoonRElPk3JDsKMVjlN?si=7303933580ae4762"
+    },
+    {
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/what-is-happening-here"
+    },
+    {
+        "name":"apple music",
+        "link":"https://music.apple.com/us/album/what-is-happening-here/1785827033?i=1785827034"
+    },
+    {
+        "name":"amazon music",
+        "link":"https://music.amazon.com/tracks/B0DQLXR33R?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IlqtLI4nFy8hbJXlxtqi98gPI"
     }]
 }

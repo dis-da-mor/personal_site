@@ -8,7 +8,18 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/track=3677537238/size=small/bgcol=191a1a/linkcol=316490/transparent=true/"
     },
     "links": [{
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/5KQfNpNfzWk72S1l6OuVsk?si=699fd2ab7d8746a8"
+    },{
     	"name": "bandcamp",
     	"link": "https://disdamor.bandcamp.com/track/jam-out-tap"
+    },
+    {
+        "name":"apple music",
+        "link":"https://music.apple.com/us/album/jam-out-tap/1785742278?i=1785742519"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DQLYWBBY?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_RE0BC4cqQXVzt088El7Wfdjst"
     }]
 }

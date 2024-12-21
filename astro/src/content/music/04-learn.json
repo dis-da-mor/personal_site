@@ -8,8 +8,19 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=1059190592/transparent=true/"
     },
     "links": [{
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/3FsBWqCsacDTdqbIZEc9T9?si=33fb3e30ae944e25"
+    },{
     	"name": "bandcamp",
     	"link": "https://disdamor.bandcamp.com/track/learning-music"
+    },
+    {
+        "name":"apple music",
+        "link":"https://music.apple.com/us/album/learning-music/1785722011?i=1785722014"
+    },
+    {
+        "name":"amazon music",
+        "link": "https://music.amazon.com/tracks/B0DQLXT178?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Il64e27RSfOaUSfzjnSRKSK6X"
     }],
     "parent": "Initial Songs"
 }
