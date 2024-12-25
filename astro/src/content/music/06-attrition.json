@@ -10,6 +10,10 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/attrition"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/7zn75vWQQemQ4DtK7ECc0i?si=3a350931f5774033"
     }],
     "parent": "Erosion"
 }

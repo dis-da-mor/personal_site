@@ -10,5 +10,9 @@
     "links": [{
     	"name": "bandcamp",
     	"link": "https://disdamor.bandcamp.com/track/a-null-reference"
+    },
+    {
+        "name":"spotify",
+        "link": "https://open.spotify.com/track/26uwAyrLs8w0ehm8RNkteh?si=c4c35011070b4d04"
     }]
 }

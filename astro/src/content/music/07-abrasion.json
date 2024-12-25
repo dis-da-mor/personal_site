@@ -10,6 +10,10 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/abrasion"
+    }, 
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/2pPUf8Tph4CrW6mL3MUAe9?si=96d1fe43b1b147b5"
     }],
     "parent": "Erosion"
 }
