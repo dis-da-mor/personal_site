@@ -14,5 +14,14 @@
     {
         "name":"spotify",
         "link": "https://open.spotify.com/track/26uwAyrLs8w0ehm8RNkteh?si=c4c35011070b4d04"
-    }]
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/a-null-reference/1787191834?i=1787191835"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/albums/B0DRDW2FX4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_TdK8Q17l1q0zohQfjALF8nn9f"
+    }
+]
 }

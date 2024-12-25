@@ -8,12 +8,22 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/album=3852452475/size=small/bgcol=191a1a/linkcol=316490/track=1637260131/transparent=true/ "
     },
     "links": [{
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/2pPUf8Tph4CrW6mL3MUAe9?si=96d1fe43b1b147b5"
+    },    
+    {
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/abrasion"
     }, 
     {
-        "name": "spotify",
-        "link": "https://open.spotify.com/track/2pPUf8Tph4CrW6mL3MUAe9?si=96d1fe43b1b147b5"
-    }],
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/abrasion/1787164184?i=1787164185"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DRDV196P?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_CrCcAmDlyJN6Q5VpbWJI4GE0h"
+    }
+
+],
     "parent": "Erosion"
 }

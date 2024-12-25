@@ -7,14 +7,13 @@
         "large": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/track=1874950929/transparent=true/",
         "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=1874950929/transparent=true/"
     },
-    "links": [
+    "links": [{
+    	"name": "bandcamp",
+    	"link": "https://disdamor.bandcamp.com/track/necessary-tension"
+    },
     {
         "name":"spotify",
         "link":"https://open.spotify.com/track/7DfsboA5OFwpknrT8DUJsU?si=631387f3f5bb498d"
-    },
-        {
-    	"name": "bandcamp",
-    	"link": "https://disdamor.bandcamp.com/track/necessary-tension"
     },
     {
         "name":"apple music",

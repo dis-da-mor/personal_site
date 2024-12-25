@@ -7,12 +7,13 @@
         "large": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/track=1059190592/transparent=true/",
         "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=1059190592/transparent=true/"
     },
-    "links": [{
-        "name":"spotify",
-        "link":"https://open.spotify.com/track/3FsBWqCsacDTdqbIZEc9T9?si=33fb3e30ae944e25"
-    },{
+    "links": [    {
     	"name": "bandcamp",
     	"link": "https://disdamor.bandcamp.com/track/learning-music"
+    },
+    {
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/3FsBWqCsacDTdqbIZEc9T9?si=33fb3e30ae944e25"
     },
     {
         "name":"apple music",

@@ -12,14 +12,21 @@
         "link": "https://disdamor.bandcamp.com/track/pretty-funky-by-yo-yo-co"
     },
     {
+        "name": "youtube",
+        "link": "https://youtu.be/7S7wHGJwPCQ?si=6XzWlzQlLy2f9GEh"
+    },
+    {
         "name":"spotify",
         "link": "https://open.spotify.com/track/3NW2x6m0osG5HId2Spa7lg?si=53209c0758a94884"
     },
     {
-        "name": "youtube",
-        "link": "https://youtu.be/7S7wHGJwPCQ?si=6XzWlzQlLy2f9GEh"
-    }
-    ],
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/pretty-funky-yo-yo-co/1787177465?i=1787177467"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/albums/B0DRDWLYYR?marketplaceId=ATVPDKIKX0DER&musicTerritory=US"
+    }],
     "lyrics": true,
     "video": true
 }

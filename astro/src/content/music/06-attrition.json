@@ -14,6 +14,15 @@
     {
         "name": "spotify",
         "link": "https://open.spotify.com/track/7zn75vWQQemQ4DtK7ECc0i?si=3a350931f5774033"
-    }],
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/attrition/1787164184?i=1787164186"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DRDTQK5G?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_309Hdkkv4uqyfwMkT9HsPLRwF"
+    }
+],
     "parent": "Erosion"
 }

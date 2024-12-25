@@ -8,12 +8,12 @@
         "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=2426386430/transparent=true/"
     },
     "links": [{
-        "name":"spotify",
-        "link":"https://open.spotify.com/track/34wRsimHGP3JmrsJBqP7Ph?si=dd108b9e87bb4fe2"
+        "name": "bandcamp",
+        "link": "https://disdamor.bandcamp.com/track/perch"
     },
     {
-    	"name": "bandcamp",
-    	"link": "https://disdamor.bandcamp.com/track/perch"
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/34wRsimHGP3JmrsJBqP7Ph?si=dd108b9e87bb4fe2"
     },
     {
         "name":"apple music",
