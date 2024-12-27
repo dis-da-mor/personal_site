@@ -39,9 +39,11 @@ a:hover{
     font-size: 30px;            
 }
 .interest-container{
-    border-radius: 0px;
     max-width: 260px;
     width: fit-content;
+}
+.interest-container:not(:hover){
+    border: 1px dashed rgba(255, 255, 255, 0.5);
 }
 .interest-container:hover{
     outline: 1px inset white;
