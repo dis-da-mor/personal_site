@@ -22,5 +22,10 @@
     {
         "name":"amazon music",
         "link":"https://music.amazon.com/tracks/B0DQLXR33R?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IlqtLI4nFy8hbJXlxtqi98gPI"
-    }]
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/IXHMHNB87zs?si=aj_XvKpgmw_dlD8d"
+    }
+]
 }

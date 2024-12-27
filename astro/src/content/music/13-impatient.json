@@ -10,6 +10,11 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/impatient"
-    }],
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/VZdqydjwleg?si=qRVcS7C5o7YiqOFp"
+    }
+],
     "parent": "Project"
 }

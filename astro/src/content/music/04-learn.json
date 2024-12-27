@@ -22,6 +22,11 @@
     {
         "name":"amazon music",
         "link": "https://music.amazon.com/tracks/B0DQLXT178?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Il64e27RSfOaUSfzjnSRKSK6X"
-    }],
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/WZrwWEt45vw?si=5mrDrrbf-lC1G5ZA"
+    }
+],
     "parent": "Initial Songs"
 }

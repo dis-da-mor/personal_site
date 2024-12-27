@@ -10,6 +10,11 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/unordered"
-    }],
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/qFlrWZbKWcw?si=HZTwjHuWLinQ8lR1"
+    }
+],
     "parent": "Project"
 }

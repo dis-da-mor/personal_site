@@ -10,6 +10,11 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/project"
-    }],
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/ubaxRCId954?si=AB9dQhab87aAxhZd"
+    }
+],
     "parent": "Project"
 }

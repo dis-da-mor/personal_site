@@ -10,6 +10,11 @@
     "links": [{
         "name": "bandcamp",
         "link": "https://disdamor.bandcamp.com/track/sand-in-my-eyes"
-    }],
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/VcejQvidMlg?si=6I6DF8eeq7gQjPUO"
+    }
+],
     "parent": "Project"
 }
