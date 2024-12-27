@@ -43,7 +43,7 @@ a:hover{
     width: fit-content;
 }
 .interest-container:not(:hover){
-    border: 1px dashed rgba(255, 255, 255, 0.5);
+    outline: 1px dashed rgba(255, 255, 255, 0.5);
 }
 .interest-container:hover{
     outline: 1px inset white;
