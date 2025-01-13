@@ -6,10 +6,33 @@ import Track from "../components/track.astro";
 import Social from "../components/social.astro";
 import { Icon } from "astro-icon/components";
 const music_collection = await getCollection("music");
-const music = music_collection.map((music) => music.data).reverse();
+const order_social_music = (video: boolean) => {
+    if (video == true){
+        return ["bandcamp", "youtube", "spotify", "apple music", "amazon music"];
+    }
+    else {
+        return ["bandcamp", "spotify", "apple music", "amazon music", "youtube"]; 
+    }
+};
+const music = music_collection
+    .map((music) => music.data)
+    .reverse()
+    .map((music) => {
+        let video = false;
+        if (music.video === true){
+            video = true;
+        }
+        const order = order_social_music(video);
+        music.links.sort((a, b) => { 
+            return order.indexOf(a.name) - order.indexOf(b.name);
+        });
+        return music;
+    });
 const social_collection = await getCollection("socials");
 const include = ["bandcamp", "spotify", "youtube", "apple music", "amazon music"];
-const socials = social_collection.map((social) => social.data).filter((social) => include.includes(social.name));
+const socials = social_collection
+    .map((social) => social.data)
+    .filter((social) => include.includes(social.name));
 ---
 
 <Layout>

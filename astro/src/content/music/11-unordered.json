@@ -14,6 +14,18 @@
     {
         "name": "youtube",
         "link": "https://youtu.be/qFlrWZbKWcw?si=HZTwjHuWLinQ8lR1"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/4GyAq6509LK2SZZkajHRfn?si=afebacd3305e4f51"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DS2V2YQ1?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_xWtlxWSmuZ3ss9vXojqdw6es4"
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/unordered/1788340612?i=1788340613"
     }
 ],
     "parent": "Project"

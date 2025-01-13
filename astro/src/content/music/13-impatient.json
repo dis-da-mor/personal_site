@@ -14,6 +14,18 @@
     {
         "name": "youtube",
         "link": "https://youtu.be/VZdqydjwleg?si=qRVcS7C5o7YiqOFp"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/4bhRbCCGZH9cZ6smW1gJJc?si=e964ef84c5034a0c"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DS2W91WC?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_bc0cgAsFF5Ja8wxLFAmZ4D8yI"
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/impatient/1788340612?i=1788340616"
     }
 ],
     "parent": "Project"

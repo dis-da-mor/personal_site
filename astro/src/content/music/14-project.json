@@ -14,6 +14,18 @@
     {
         "name": "youtube",
         "link": "https://youtu.be/ubaxRCId954?si=AB9dQhab87aAxhZd"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/34l976rEc4D7s4jR6fWUiL?si=8bda003eb0604061"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DS2V9B4F?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_7dSRo3dXP2T6ek33kAQgDi8QU"
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/project/1788340612?i=1788340617"
     }
 ],
     "parent": "Project"
