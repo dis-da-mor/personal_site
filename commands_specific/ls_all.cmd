@@ -1,1 +1,2 @@
-find . -type f -printf "%T@ %p\n" | sort -nr | cut -d\  -f2-
+cd astro/public/large
+ls -R > ignored
