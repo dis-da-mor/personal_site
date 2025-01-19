@@ -13,5 +13,4 @@ you can find ignored files in each `.gitignore`. I have listed the ignored files
 
 ## TODO
 
-- animals (have pets?)
 - graph editor
