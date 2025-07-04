@@ -1,9 +1,9 @@
 use std::{
-    io::{stdin, stdout, Write},
+    io::{Write, stdin, stdout},
     path::Path,
 };
 
-use image::{self, imageops::FilterType, ImageReader};
+use image::{self, ImageReader, imageops::FilterType};
 fn main() {
     let mut in_string = String::new();
     let mut out_string = String::new();

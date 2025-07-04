@@ -1,8 +1,0 @@
-{
-    "name": "Totally True Stats",
-    "description": "simple AI-enabled tool to generate silly statistics",
-    "link": "/stats",
-    "link_name": "page",
-    "languages": ["typescript"],
-    "rank": 3
-}

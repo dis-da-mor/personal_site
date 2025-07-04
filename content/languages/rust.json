@@ -1,0 +1,6 @@
+{
+    "name": "rust",
+    "verbosity": 4,
+    "icon_name": "vscode-icons:file-type-rust-toolchain",
+    "rank": 0
+}

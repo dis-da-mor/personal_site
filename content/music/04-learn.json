@@ -1,0 +1,32 @@
+{
+    "name": "Learning Music",
+    "description": "the first track I've made",
+    "file_name": "LearningMusic",
+    "date": "2021-03-16",
+    "bandcamp_embed": {
+        "large": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/track=1059190592/transparent=true/",
+        "small": "https://bandcamp.com/EmbeddedPlayer/album=2406089374/size=small/bgcol=191a1a/linkcol=316490/track=1059190592/transparent=true/"
+    },
+    "links": [    {
+    	"name": "bandcamp",
+    	"link": "https://disdamor.bandcamp.com/track/learning-music"
+    },
+    {
+        "name":"spotify",
+        "link":"https://open.spotify.com/track/3FsBWqCsacDTdqbIZEc9T9?si=33fb3e30ae944e25"
+    },
+    {
+        "name":"apple music",
+        "link":"https://music.apple.com/us/album/learning-music/1785722011?i=1785722014"
+    },
+    {
+        "name":"amazon music",
+        "link": "https://music.amazon.com/tracks/B0DQLXT178?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Il64e27RSfOaUSfzjnSRKSK6X"
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/WZrwWEt45vw?si=5mrDrrbf-lC1G5ZA"
+    }
+],
+    "parent": "Initial Songs"
+}

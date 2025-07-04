@@ -1,0 +1,32 @@
+{
+    "name": "impatient",
+    "description": "can it be over? I'm sick of this.",
+    "file_name": "Impatient",
+    "date": "2024-21-12",
+    "bandcamp_embed": {
+        "small": "https://bandcamp.com/EmbeddedPlayer/album=1667373341/size=small/bgcol=191a1a/linkcol=316490/track=1638559035/transparent=true/",
+        "large": "https://bandcamp.com/EmbeddedPlayer/album=1667373341/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/track=1638559035/transparent=true/"    
+    },
+    "links": [{
+        "name": "bandcamp",
+        "link": "https://disdamor.bandcamp.com/track/impatient"
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/VZdqydjwleg?si=qRVcS7C5o7YiqOFp"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/4bhRbCCGZH9cZ6smW1gJJc?si=e964ef84c5034a0c"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DS2W91WC?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_bc0cgAsFF5Ja8wxLFAmZ4D8yI"
+    },
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/impatient/1788340612?i=1788340616"
+    }
+],
+    "parent": "Project"
+}

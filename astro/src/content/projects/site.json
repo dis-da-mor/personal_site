@@ -1,7 +1,0 @@
-{
-    "name": "personal site",
-    "description": "the site you are currently on",
-    "link": "https://github.com/dis-da-mor/personal_site",
-    "languages": ["rust", "typescript", "python"],
-    "rank": -1
-}

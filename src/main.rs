@@ -1,22 +1,15 @@
-use private::files;
-use rocket::{
-    figment::{Figment, Profile},
-    launch, routes,
-};
-use stat::{stat_generate, stat_state};
-mod auth;
-mod private;
-mod stat;
+// https://www.youtube.com/watch?v=qCXFi4Jg11c
 
-#[launch]
-fn rocket() -> _ {
-    let stat_state = stat_state();
-    rocket::custom(figment_gen())
-        .mount("/", routes![files])
-        .manage(stat_state)
-        .mount("/", routes![stat_generate])
+use actix_web::{App, HttpResponse, HttpServer, Responder, get, middleware::Logger};
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(move || App::new().service(index).wrap(Logger::default()))
+        .bind(("127.0.0.1", 8080))?
+        .run()
+        .await
 }
-
-fn figment_gen() -> Figment {
-    Figment::from(rocket::Config::default()).select(Profile::from_env_or("APP_PROFILE", "default"))
+#[get("/")]
+async fn index() -> impl Responder {
+    HttpResponse::Ok().body("<h1>hello</h1><p>world</p>")
 }

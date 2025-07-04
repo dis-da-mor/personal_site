@@ -1,0 +1,7 @@
+{
+    "name": "pseudo pseudo code",
+    "description": "working version of the teaching language in my previous computer science syllabus",
+    "link": "https://github.com/dis-da-mor/pseudo_pseudo_code",
+    "languages": ["rust"],
+    "rank": 2
+}

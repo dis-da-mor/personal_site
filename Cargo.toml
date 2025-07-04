@@ -1,12 +1,8 @@
 [package]
 name = "personal_site"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
-anyhow = "1.0.93"
-dotenv = "0.15.0"
-getrandom = "0.2.15"
-rocket = {version = "0.5.1", features = [ "tls", "json"]}
-rocket-governor = "0.2.0-rc.3"
-zmq = "0.10.0"
+actix-web = "4.11.0"
+tera = "1.20.0"

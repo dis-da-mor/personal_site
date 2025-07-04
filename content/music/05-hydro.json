@@ -1,0 +1,33 @@
+{
+    "name": "Hydraulic Action",
+    "description": "based on the sea. track features audio from a beach visit.",
+    "file_name": "HydraulicAction",
+    "date": "2021-06-18",
+    "bandcamp_embed": {
+        "large": "https://bandcamp.com/EmbeddedPlayer/album=3852452475/size=large/bgcol=191a1a/linkcol=316490/tracklist=false/artwork=small/track=937335082/transparent=true/ ",
+        "small": "https://bandcamp.com/EmbeddedPlayer/album=3852452475/size=small/bgcol=191a1a/linkcol=316490/track=937335082/transparent=true/ "
+    },
+    "links": [{
+        "name": "bandcamp",
+        "link": "https://disdamor.bandcamp.com/track/hydraulic-action"
+    },
+    {
+        "name": "youtube",
+        "link": "https://youtu.be/I5wQuUqDU0Q?si=nxI14jX6AsdA8v1U"
+    },
+    {
+        "name": "spotify",
+        "link": "https://open.spotify.com/track/7BAIWwAPRW9F6NnnKua0S0?si=aa588c9cc08e4eed"
+    }, 
+    {
+        "name": "apple music",
+        "link": "https://music.apple.com/us/album/hydraulic-action/1787164184?i=1787164187"
+    },
+    {
+        "name": "amazon music",
+        "link": "https://music.amazon.com/tracks/B0DRDW721X?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_qxZW0PvOeq2tXnfZRi6B9VjJA"
+    }
+],
+    "parent": "Erosion",
+    "video": true
+}
