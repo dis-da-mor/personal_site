@@ -1,9 +1,9 @@
-use rocket::{
-    get,
-    http::Status,
-    serde::{json::Json, Serialize},
-    State,
+use actix_web::{
+    Responder,
+    error::{ErrorBadRequest, ErrorInternalServerError},
+    web::{Data, Json},
 };
+use serde::Serialize;
 use std::{
     env::{self, current_dir},
     path::Path,
@@ -15,19 +15,19 @@ use std::{
 use zmq::{self, Socket};
 
 #[derive(Serialize)]
-#[serde(crate = "rocket::serde")]
 pub(crate) struct StatResponse {
     percent: String,
     noun: String,
     adjective: String,
 }
-#[get("/stat_generate?<randomness>&<word>")]
-pub(crate) fn stat_generate(
-    socket: &State<Mutex<Socket>>,
+pub(crate) async fn stat_generate(
+    socket: Data<Mutex<Socket>>,
     randomness: f64,
     word: Option<String>,
-) -> Result<Json<StatResponse>, Status> {
-    let socket = socket.lock().map_err(|_| Status::new(500))?;
+) -> Result<Json<StatResponse>, actix_web::Error> {
+    let socket = socket
+        .lock()
+        .map_err(|_| ErrorInternalServerError("mutex error"))?;
     socket
         .send(
             format!("{randomness} {}", word.unwrap_or_else(|| "".to_string())).as_bytes(),
@@ -35,18 +35,12 @@ pub(crate) fn stat_generate(
         )
         .map_err(|err| {
             eprintln!("{err}");
-            Status::new(500)
+            ErrorInternalServerError("zmq error")
         })?;
     let msg = socket
         .recv_string(0)
-        .map_err(|err| {
-            eprintln!("{err}");
-            Status::new(500)
-        })?
-        .map_err(|err| {
-            eprintln!("invalid string: {:#?}", err);
-            Status::new(500)
-        })?;
+        .map_err(|err| ErrorInternalServerError(format!("{err}")))?
+        .map_err(|err| ErrorBadRequest(format!("invalid string: {:#?}", err)))?;
     let back = msg.split_whitespace().collect::<Vec<_>>();
     Ok(Json(StatResponse {
         percent: back[0].to_string(),

@@ -1,2 +1,0 @@
-cd astro;
-codium .;
