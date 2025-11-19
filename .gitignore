@@ -1,3 +1,4 @@
 /target
 .key
 .env
+astro/public/large.zip
