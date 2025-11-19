@@ -233,12 +233,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dotenv"
-version = "0.15.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
-
-[[package]]
 name = "either"
 version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -822,8 +816,6 @@ name = "personal_site"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "dotenv",
- "getrandom",
  "rocket",
  "rocket-governor",
  "zmq",
@@ -849,9 +841,9 @@ checksum = "953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2"
 
 [[package]]
 name = "portable-atomic"
-version = "1.10.0"
+version = "1.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "280dc24453071f1b63954171985a0b0d30058d287960968b9b2aca264c8d4ee6"
+checksum = "f84267b20a16ea918e43c6a88433c2d54fa145c92a811b5b047ccbe153674483"
 
 [[package]]
 name = "ppv-lite86"
@@ -1076,9 +1068,9 @@ dependencies = [
 
 [[package]]
 name = "rocket-governor"
-version = "0.2.0-rc.3"
+version = "0.2.0-rc.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f43a4a44318a9318e50850faab27a27a1c0afee3edc77434471a0e40995ec206"
+checksum = "57cccf12e198100d5d49ce797ffcf0d7f064960624f42307851010521fe53611"
 dependencies = [
  "governor",
  "lazy_static",
