@@ -4,9 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.93"
-dotenv = "0.15.0"
-getrandom = "0.2.15"
 rocket = {version = "0.5.1", features = [ "tls", "json"]}
-rocket-governor = "0.2.0-rc.3"
+anyhow = "1.0.93"
 zmq = "0.10.0"
+rocket-governor = "0.2.0-rc.4"
