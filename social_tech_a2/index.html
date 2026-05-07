@@ -1,0 +1,25 @@
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>diagram</title>
+  <meta charset="utf-8">
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body style="background-color: black;">
+  <div id="layers" style="position: absolute; bottom: 5%; left: 50%;">
+  </div>
+  <div id="controls-button"
+    style="position: absolute;/*! top: 10px; *//*! left: 10px; */background-color: white;font-size: 40px;height: max-content;top: 2%;left: 2%;">
+    toggle<br>
+    controls</div>
+  <div id="controls">
+    Pan: drag<br>Zoom: scroll<br>click on a gate node to use it<br>node layers can be toggled below
+  </div>
+  <svg id="svg_el"></svg>
+  <script type="module" src="./gate.js"></script>
+</body>
+
+</html>

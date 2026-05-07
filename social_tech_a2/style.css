@@ -1,0 +1,26 @@
+body {
+  overflow: hidden;
+}
+
+#controls {
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  font-size: xxx-large;
+  left: 30%;
+}
+
+#layers {
+  background-color: rgba(0, 0, 0, 0.);
+
+  label {
+    font-size: xx-large;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-right: 10pt;
+  }
+
+  input[type=checkbox] {
+    transform: scale(2.0);
+    margin-right: 5pt;
+  }
+}
