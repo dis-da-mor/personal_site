@@ -1,4 +1,4 @@
-import "./svg-pan-zoom.min.js"
+import "/social_tech_a2/svg-pan-zoom.min.js"
 
 let controls = document.getElementById("controls");
 controls.style.display = "visible";
@@ -11,7 +11,7 @@ document.getElementById("controls-button").onclick = (_) => {
   }
 };
 let svg_el = document.getElementsByTagName("svg")[0];
-let response= await fetch("./source.svg");
+let response= await fetch("/social_tech_a2/source.svg");
 let source = await response.text();
 let lines = source.split("\n");
 let svg_source = lines[lines.length - 1];
