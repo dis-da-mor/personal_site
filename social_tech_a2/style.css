@@ -24,3 +24,14 @@ body {
     margin-right: 5pt;
   }
 }
+
+#svg_div {
+  color: white;
+  height: 100vh;
+  justify-content: center;
+  text-justify: auto;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-size: xxx-large;
+}
