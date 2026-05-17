@@ -7,4 +7,3 @@ edition = "2021"
 rocket = {version = "0.5.1", features = [ "tls", "json"]}
 anyhow = "1.0.93"
 zmq = "0.10.0"
-rocket-governor = "0.2.0-rc.4"

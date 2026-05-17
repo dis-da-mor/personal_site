@@ -4,7 +4,6 @@ use rocket::{
     serde::{json::Json, Serialize},
     State,
 };
-use rocket_governor::RocketGovernor;
 use std::{
     env::{self, current_dir},
     path::Path,
@@ -15,8 +14,6 @@ use std::{
 };
 use zmq::{self, Socket};
 
-use crate::RateLimit;
-
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
 pub(crate) struct StatResponse {
@@ -26,7 +23,6 @@ pub(crate) struct StatResponse {
 }
 #[get("/stat_generate?<randomness>&<word>")]
 pub(crate) fn stat_generate(
-    _rate_limit: RocketGovernor<RateLimit>,
     socket: &State<Mutex<Socket>>,
     randomness: f64,
     word: Option<String>,

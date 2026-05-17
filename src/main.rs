@@ -5,9 +5,7 @@ use rocket::{
     http::Status,
     launch, routes, Request,
 };
-use rocket_governor::{Method, Quota, RocketGovernable};
 use stat::{stat_generate, stat_state};
-use std::num::NonZeroU32;
 mod dist;
 mod stat;
 
@@ -22,12 +20,6 @@ fn rocket() -> _ {
 
 fn figment_gen() -> Figment {
     Figment::from(rocket::Config::default()).select(Profile::from_env_or("APP_PROFILE", "default"))
-}
-pub(crate) struct RateLimit;
-impl<'r> RocketGovernable<'r> for RateLimit {
-    fn quota(_method: Method, _route_name: &str) -> Quota {
-        Quota::per_second(NonZeroU32::new(5).unwrap())
-    }
 }
 #[catch(404)]
 fn not_found(req: &Request) -> String {
