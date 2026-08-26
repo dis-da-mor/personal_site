@@ -1,0 +1,8 @@
+- use `pyenv`
+- install the version specified in `py_version.txt`
+- create a virtual environment
+- activate it
+- run the pip command in `pip_packages.txt`
+- wait for it to finish
+- run `nuitka main.py`
+- wait for it to finish
