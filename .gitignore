@@ -3,3 +3,4 @@
 .env
 astro/public/large.zip
 large.zip
+ astro/package-lock.json
